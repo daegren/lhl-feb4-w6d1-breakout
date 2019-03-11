@@ -10,6 +10,7 @@ class App extends Component {
         <Counter
           title={'Cups of Coffee I\'ve had today'}
           onChange={this._handleCounterChange}
+          step={5}
         />
       </div>
     );
