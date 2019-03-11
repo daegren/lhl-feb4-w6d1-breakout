@@ -3,11 +3,18 @@ h1 {
 }
 
 .counter {
-  display: flex;
-  font-size: 2em;
   margin: 1em 0;
 
-  span {
-    margin: 0 1em;
+  h2 {
+    color: salmon;
+  }
+
+  .container {
+    display: flex;
+    font-size: 2em;
+
+    span {
+      margin: 0 1em;
+    }
   }
 }

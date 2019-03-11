@@ -7,10 +7,7 @@ class App extends Component {
       <div>
         <h1>Hello React :)</h1>
 
-        <Counter />
-        <Counter />
-        <Counter />
-        <Counter />
+        <Counter title={'Cups of Coffee I\'ve had today'} />
       </div>
     );
   }

@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 class Counter extends Component {
   constructor() {
@@ -15,9 +16,12 @@ class Counter extends Component {
   render() {
     return (
       <div className="counter">
-        <button onClick={this._handleDecrement}>-</button>
-        <span>{this.state.value}</span>
-        <button onClick={this._handleIncrement}>+</button>
+        <h2>{this.props.title}</h2>
+        <div className="container">
+          <button onClick={this._handleDecrement}>-</button>
+          <span>{this.state.value}</span>
+          <button onClick={this._handleIncrement}>+</button>
+        </div>
       </div>
     );
   }
@@ -31,3 +35,7 @@ class Counter extends Component {
   }
 }
 export default Counter;
+
+Counter.propTypes = {
+  title: PropTypes.string.isRequired
+};
