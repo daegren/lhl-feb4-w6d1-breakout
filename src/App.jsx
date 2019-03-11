@@ -11,6 +11,8 @@ class App extends Component {
           title={'Cups of Coffee I\'ve had today'}
           onChange={this._handleCounterChange}
           step={5}
+          min={-25}
+          max={100}
         />
       </div>
     );

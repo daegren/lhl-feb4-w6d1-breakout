@@ -29,11 +29,16 @@ class Counter extends Component {
 
   _handleChange(delta) {
     return () => {
-      this.setState({ value: this.state.value + delta }, () => {
-        if (this.props.onChange) {
-          this.props.onChange(this.state.value);
-        }
-      });
+      const { min, max } = this.props;
+      const newValue = this.state.value + delta;
+
+      if (newValue >= min && newValue <= max) {
+        this.setState({ value: newValue }, () => {
+          if (this.props.onChange) {
+            this.props.onChange(this.state.value);
+          }
+        });
+      }
     };
   }
 }
@@ -42,9 +47,13 @@ export default Counter;
 Counter.propTypes = {
   title: PropTypes.string.isRequired,
   onChange: PropTypes.func,
-  step: PropTypes.number
+  step: PropTypes.number,
+  min: PropTypes.number,
+  max: PropTypes.number
 };
 
 Counter.defaultProps = {
-  step: 1
+  step: 1,
+  min: 0,
+  max: 10
 };
