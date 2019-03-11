@@ -1,9 +1,17 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
+import Counter from './Counter.jsx';
 
 class App extends Component {
   render() {
     return (
-      <h1>Hello React :)</h1>
+      <div>
+        <h1>Hello React :)</h1>
+
+        <Counter />
+        <Counter />
+        <Counter />
+        <Counter />
+      </div>
     );
   }
 }
