@@ -9,8 +9,7 @@ class Counter extends Component {
       value: 0
     };
 
-    this._handleIncrement = this._handleIncrement.bind(this);
-    this._handleDecrement = this._handleDecrement.bind(this);
+    this._handleChange = this._handleChange.bind(this);
   }
 
   render() {
@@ -18,24 +17,27 @@ class Counter extends Component {
       <div className="counter">
         <h2>{this.props.title}</h2>
         <div className="container">
-          <button onClick={this._handleDecrement}>-</button>
+          <button onClick={this._handleChange(-1)}>-</button>
           <span>{this.state.value}</span>
-          <button onClick={this._handleIncrement}>+</button>
+          <button onClick={this._handleChange(1)}>+</button>
         </div>
       </div>
     );
   }
 
-  _handleIncrement() {
-    this.setState({ value: this.state.value + 1 });
-  }
-
-  _handleDecrement() {
-    this.setState({ value: this.state.value - 1 });
+  _handleChange(delta) {
+    return () => {
+      this.setState({ value: this.state.value + delta }, () => {
+        if (this.props.onChange) {
+          this.props.onChange(this.state.value);
+        }
+      });
+    };
   }
 }
 export default Counter;
 
 Counter.propTypes = {
-  title: PropTypes.string.isRequired
+  title: PropTypes.string.isRequired,
+  onChange: PropTypes.func
 };

@@ -7,9 +7,16 @@ class App extends Component {
       <div>
         <h1>Hello React :)</h1>
 
-        <Counter title={'Cups of Coffee I\'ve had today'} />
+        <Counter
+          title={'Cups of Coffee I\'ve had today'}
+          onChange={this._handleCounterChange}
+        />
       </div>
     );
+  }
+
+  _handleCounterChange(counterValue) {
+    console.log('New Counter Value:', counterValue);
   }
 }
 export default App;
